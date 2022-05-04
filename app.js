@@ -6,15 +6,26 @@ const app = Vue.createApp({
             name: 'John',
             lastName: 'Doe',
             email: 'John@doe.com',
-            gender: 'female',
+            gender: 'male',
             picture: 'https://randomuser.me/api/portraits/men/10.jpg',
 
         }
     },
     methods:{
-        GetUser(){
-            console.log(this.name);
+        async GetUser(){
+            const res = await fetch('https://randomuser.me/api');
+            const {results} = await res.json();
+
+            this.greeting = "`Hello, I'm ${ results[1].cell }`",
+            this.name = results[0].name.first,
+            this.lastName = results[0].name.last, 
+            this.email = results[0].email,
+            this.gender = results[0].gender,
+            this.picture = results[0].picture.large
         }
+    },
+    mounted(){
+        this.GetUser();
     }
 })
 

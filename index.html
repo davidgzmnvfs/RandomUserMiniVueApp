@@ -8,7 +8,7 @@
 <body>
     <div id="app">
         <img v-bind:src="picture" :class="gender" :alt="`${name} ${lastName}`">
-        <h1>{{name}}{{lastName}}</h1>
+        <h1>{{name}} {{lastName}}</h1>
         <h3>{{email}}</h3>
         <button v-on:click="GetUser()" :class="gender">Get Random Photo</button>
     </div>
