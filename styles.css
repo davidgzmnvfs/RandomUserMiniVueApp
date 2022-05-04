@@ -1,0 +1,10 @@
+.male {
+    border: 1px solid blue;
+    background-color: blue;
+    color: white;
+}
+.female {
+    border: 1px solid pink; 
+    background-color: pink;
+    color: white;
+}
